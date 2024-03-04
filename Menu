@@ -1,0 +1,76 @@
+import java.util.Scanner;
+public class Menu {
+    public static void main(String[] args) {
+        Menu menu = new Menu();
+        menu.run();
+    }
+    public void run() {
+        Scanner scanner = new Scanner(System.in);
+        int choice;
+        boolean printMenu = true;
+
+        while (true) {
+            if (printMenu) {
+                System.out.println("Menu");
+                System.out.println("Open");
+                System.out.println("Close");
+                System.out.println("Save");
+                System.out.println("Save as");
+                System.out.println("Help");
+                System.out.println("Exit");
+                System.out.println("Choose an option:");
+            }
+            choice = scanner.nextInt();
+            printMenu = true;
+
+            switch (choice) {
+                case 1:
+                    System.out.println("Successfully opened file");
+                    printMenu = false;
+                    break;
+                case 2:
+                    System.out.println("Successfully closed file!");
+                    printMenu = false;
+                    break;
+                case 3:
+                    System.out.println("Successfully saved file!");
+                    printMenu = false;
+                    break;
+                case 4:
+                    System.out.println("Successfully saved another file");
+                    printMenu = false;
+                    break;
+                case 5:
+                    System.out.println("You choose option Help:");
+                    printHelp();
+                    printMenu = false;
+                    break;
+                case 6:
+                    System.out.println("You choose option Exit:");
+                    printMenu = false;
+                    break;
+                default:
+                    System.out.println("You choose incorrect option.");
+                    printMenu = true;
+                    break;
+
+
+            }
+        if (choice == 6) {
+            break;
+        }
+    }
+        scanner.close();
+    }
+
+    private static void printHelp() {
+        System.out.println("The following commands are supported:");
+        System.out.println("1. Open <file> opens <file>");
+        System.out.println("2. Close closes currently opened file");
+        System.out.println("3. Save saves the currently open file in <file>");
+        System.out.println("4. Save as <file> saves the currently open file in <file>");
+        System.out.println("5. Help prints this information");
+        System.out.println("6. Exit exists the program");
+    }
+
+}
